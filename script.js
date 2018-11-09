@@ -15,6 +15,8 @@ const nameList = [
 // Using recursion
 function binarySearch(list, name) {
 
+    // console.log("name list: ", list);
+
     let indexHalf = Math.floor(list.length / 2);
 
     if (list.length === 1 && list[0] != name) {
@@ -26,11 +28,11 @@ function binarySearch(list, name) {
     } else if ( list[indexHalf] > name ) {
         // list = list.splice(0, indexHalf);
         list = list.slice(0, indexHalf);
-        console.log("front", list)
+        console.log("taking front half: ", list);
     } else if ( list[indexHalf] < name ) {
         // list = list.splice(indexHalf + 1, list.length - indexHalf - 1);
         list = list.slice(indexHalf + 1);
-        console.log("back", list)
+        console.log("taking back half: ", list);
     };
 
     binarySearch(list, name);
@@ -40,7 +42,8 @@ function binarySearch(list, name) {
 // Using while loop
 // const binarySearch = (list, name) => {
 
-//     console.log("sorting list: ", list);
+//     // let list = list2.slice(0);
+//     // console.log("nameList: ", nameList);
 
 //     while (true) {
 
@@ -54,7 +57,7 @@ function binarySearch(list, name) {
 //             return true;
 //         } else if ( list[indexHalf] > name ) {
 //             // list = list.splice(0, indexHalf);
-//             list = list.slice(0, indexHalf)
+//             list = list.slice(0, indexHalf);
 //             console.log("front", list)
 //         } else if ( list[indexHalf] < name ) {
 //             // list = list.splice(indexHalf + 1, list.length - indexHalf - 1);
@@ -65,10 +68,10 @@ function binarySearch(list, name) {
 // };
 
 
-
 binarySearch(nameList, 'Daisy');//=> true
 binarySearch(nameList, 'Aaron');//=> true
 binarySearch(nameList, 'Bruce'); //=> false
+binarySearch(nameList, 'Aaron');//=> true
 
 
 
